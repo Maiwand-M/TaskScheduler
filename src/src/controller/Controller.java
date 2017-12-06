@@ -1,35 +1,53 @@
 package controller;
 
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.*;
+
+import model.Scheduler;
+import view.View;
+
 public class Controller {
 
-    private Model model;
+    private Scheduler model;
 	private View view;
 
-    public Controller(Model model, View view) {
+    public Controller(Scheduler m, View v) {
 
-        this.model = model;
-        this.view = view;
+        this.model = m;
+        this.view = v;
+
+        // Listeners
+
+        addPersonListener addPersonListener = new addPersonListener(view.getAddPersonButton());
+        view.getAddPersonButton().setActionCommand("  add  ");
+        view.getAddPersonButton().addActionListener(addPersonListener);
+        view.getPersonName().addActionListener(addPersonListener);
+        view.getPersonName().getDocument().addDocumentListener(addPersonListener);
+
+        view.getDeleteButton().addActionListener(new deleteListener());
 
     }
-	
-	    class deleteListener implements ActionListener {
+
+	class deleteListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
 
-            int i = list.getSelectedIndex();
-            listModel.remove(i);
+            int i = view.getList().getSelectedIndex();
+            view.getListModel().remove(i);
 
             //if list size equals to zero do nothing
-            if (listModel.getSize() == 0) {
+            if (view.getListModel().getSize() == 0) {
 
 
             } else {
                 //remove last
-                if (i == listModel.getSize()) {
+                if (i == view.getListModel().getSize()) {
 
                     i--;
                 }
 
-                list.setSelectedIndex(i);
+                view.getList().setSelectedIndex(i);
             }
         }
     }
@@ -45,36 +63,36 @@ public class Controller {
         }
 
         public void actionPerformed(ActionEvent e){
-            String name = personName.getText();
+            String name = view.getPersonName().getText();
 
             //User didn't type in a unique name...
             if (name.equals("") || alreadyInList(name)){
 
-                personName.requestFocusInWindow();
-                personName.selectAll();
+                view.getPersonName().requestFocusInWindow();
+                view.getPersonName().selectAll();
 
                 return;
             }
 
-            int i = list.getSelectedIndex(); //get selected index
+            int i = view.getList().getSelectedIndex(); //get selected index
             if (i == -1) { //no selection, so insert at beginning
                 i = 0;
             } else {           //add after the selected item
                 i++;
             }
-            //adding the person to the list
-            listModel.addElement(personName.getText());
+            //adding the person to the view.getList()
+            view.getListModel().addElement(view.getPersonName().getText());
 
             //Reseting the text field.
-            personName.setText("");
+            view.getPersonName().setText("");
 
-            list.setSelectedIndex(i);
+            view.getList().setSelectedIndex(i);
         }
 
         //checks if given name is already in the list
         protected boolean alreadyInList(String name){
 
-            return listModel.contains(name);
+            return view.getListModel().contains(name);
         }
 
         //enabling the button if text if the written text is valid

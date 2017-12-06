@@ -30,18 +30,12 @@ public class View extends JPanel {
         JScrollPane listScrollPane = new JScrollPane(list);
 
         addPersonButton = new JButton("  add  ");
-        addPersonListener addPersonListener = new addPersonListener(addPersonButton);
-        addPersonButton.setActionCommand("  add  ");
-        addPersonButton.addActionListener(addPersonListener);
         addPersonButton.setEnabled(false);
 
         deleteButton = new JButton("delete");
         deleteButton.setActionCommand("delete");
-        deleteButton.addActionListener(new deleteListener());
 
         personName = new JTextField(5);
-        personName.addActionListener(addPersonListener);
-        personName.getDocument().addDocumentListener(addPersonListener);
         String name = listModel.getElementAt(
                 list.getSelectedIndex()).toString();
 
@@ -73,6 +67,24 @@ public class View extends JPanel {
         frame.setVisible(true);
     }
 
+    public JTextField getPersonName() {
+        return personName;
+    }
+
+    public JList getList() {
+        return list;
+    }
+
+    public DefaultListModel getListModel() {
+        return listModel;
+    }
+
+    public JButton getAddPersonButton() {
+        return addPersonButton;
+    }
+
+    public JButton getDeleteButton() {
+        return deleteButton;
+    }
+
 }
-
-

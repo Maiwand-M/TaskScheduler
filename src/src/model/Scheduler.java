@@ -2,11 +2,8 @@ package model;
 
 import java.util.ArrayList;
 
-/**
- * Created by k1502425 on 06/12/17.
- */
 public class Scheduler {
-    ArrayList<Person> staffRoster;
+/*    ArrayList<Person> staffRoster;
     ArrayList<Task> taskList;
     ArrayList<Task> completedTasks;
     int currentTime = 0;
@@ -33,10 +30,10 @@ public class Scheduler {
        while(!taskList.isEmpty()){
             for(taskList){
                 if(currentTime == task.getEnd){
-                   /*
-                   get task person
-                   remove task from person
-                    */
+
+                   //get task person
+                   //remove task from person
+
                 }
             }
        }
@@ -46,5 +43,5 @@ public class Scheduler {
 
 
 
-   }
+   }*/
 }
