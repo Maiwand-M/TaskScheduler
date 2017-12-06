@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Task {
     private String name;
+    private int startTime;
     private int effort; //hours
     private List<Task> dependencies;
     private Person person;
