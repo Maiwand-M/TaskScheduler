@@ -2,7 +2,7 @@ package main;
 
 import controller.Controller;
 import model.Scheduler;
-import view.View;
+import view.*;
 
 public class Main {
 
@@ -11,7 +11,9 @@ public class Main {
         Scheduler model = new Scheduler();
         View view = new View();
         Controller controller = new Controller(model, view);
+        pageForm2 form = new pageForm2();
 
-	}
+
+    }
 
 }
