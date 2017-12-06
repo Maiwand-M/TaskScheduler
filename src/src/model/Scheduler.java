@@ -11,15 +11,40 @@ public class Scheduler {
     ArrayList<Task> completedTasks;
     int currentTime = 0;
 
-   public void addTask(){}
+   public void addTask(String name,int effort){
+       taskList.add(new Task(name,effort));
+   }
 
    public void addPerson(String name){
        staffRoster.add(new Person(name));
    }
-   public void assignTask()
+
+   public void assignTask(Person person,Task task,int currentTime){
+       task.assign(person,currentTime);
+       person.assignTask(task);
+   }
 
 
-   public ArrayList<Task> getSchedule(){}
+   public ArrayList<Task> getSchedule(){
 
 
+
+
+       while(!taskList.isEmpty()){
+            for(taskList){
+                if(currentTime == task.getEnd){
+                   /*
+                   get task person
+                   remove task from person
+                    */
+                }
+            }
+       }
+
+       return null;
+
+
+
+
+   }
 }
