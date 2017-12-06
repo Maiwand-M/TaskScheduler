@@ -9,3 +9,7 @@ Daniel Dunn
 Nizam (Arda) Gulsun
 Maiwand Waidanwal
 Prawee (Punn) Wongphayabal
+
+Specification & Design Doc
+
+https://docs.google.com/document/d/1-kR5X7J2IkHJR6hzCB6dCQZogxRlUt0S2cHT2FpuaDI/edit?usp=sharing

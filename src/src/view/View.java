@@ -62,6 +62,10 @@ public class View extends JPanel {
 
         this.setOpaque(true);
         frame.setContentPane(this);
+        frame.setTitle("Project Task Scheduler");
+
+        frame.setPreferredSize(new Dimension(600, 400));
+
 
         frame.pack();
         frame.setVisible(true);
