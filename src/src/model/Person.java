@@ -7,9 +7,17 @@ public class Person {
         this.name = name;
     }
 
-    public Person(String name,Task task){
+    public Person(String name,Task task) {
         this(name);
         this.task = task;
+    }
+
+    public void assignTask(Task task){
+        this.task = task;
+    }
+
+    public void completeTask(){
+        this.task = null;
     }
 
     @Override
