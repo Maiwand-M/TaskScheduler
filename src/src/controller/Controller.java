@@ -30,53 +30,6 @@ public class Controller {
 
     }
 
-	class deleteListener implements ActionListener {
-
-        /*
-
-        The process of deleting an entry from the person list should be as follows:
-
-        1) delete button is pressed
-        2) the name (as a string) is taken from the visual list
-        3) this string is passed to the model removePerson(String personName)
-        -- every time the model changes the UI should be updated--
-        4) updateTaskList is called
-
-           void updatePersonList{
-                view.clear()? ///
-                view.showPeople(model.getTaskList())
-                }
-
-                ^^^^^
-                The implementation of this is up to the view and controller but this is the gist of what needs to happen
-                The name of every person (string) should be extracted from the Person object using Person.getName()
-                Then either, put into an Array/ArrayList<String> and passed to the view to be displayed
-
-                As we dicussed in the lab there was some disagreement in whethere or not the view should be freshly
-                updated each time the model changes: actually this is not up to me. So long as it is coded in such a way
-                there is no inconsistency between the model and view it's all good with me.
-         */
-        public void actionPerformed(ActionEvent e) {
-
-            int i = view.getList().getSelectedIndex();
-            view.getListModel().remove(i);
-
-            //if list size equals to zero do nothing
-            if (view.getListModel().getSize() == 0) {
-
-
-            } else {
-                //remove last
-                if (i == view.getListModel().getSize()) {
-
-                    i--;
-                }
-
-                view.getList().setSelectedIndex(i);
-            }
-        }
-    }
-
     class addPersonListener implements ActionListener, DocumentListener {
 
         /*
@@ -97,7 +50,6 @@ public class Controller {
         private JButton button;
 
         public addPersonListener(JButton button){
-
             this.button = button;
         }
 
@@ -120,7 +72,8 @@ public class Controller {
                 i++;
             }
             //adding the person to the view.getList()
-            view.getListModel().addElement(view.getPersonName().getText());
+            model.addPerson(name);
+            view.getListModel().addElement(model.getStaffRoster().get(model.getStaffRoster().size()-1).getName());
 
             //Reseting the text field.
             view.getPersonName().setText("");
@@ -167,6 +120,53 @@ public class Controller {
                 return true;
             }
             return false;
+        }
+    }
+
+	class deleteListener implements ActionListener {
+
+        /*
+
+        The process of deleting an entry from the person list should be as follows:
+
+        1) delete button is pressed
+        2) the name (as a string) is taken from the visual list
+        3) this string is passed to the model removePerson(String personName)
+        -- every time the model changes the UI should be updated--
+        4) updateTaskList is called
+
+           void updatePersonList{
+                view.clear()? ///
+                view.showPeople(model.getTaskList())
+                }
+
+                ^^^^^
+                The implementation of this is up to the view and controller but this is the gist of what needs to happen
+                The name of every person (string) should be extracted from the Person object using Person.getName()
+                Then either, put into an Array/ArrayList<String> and passed to the view to be displayed
+
+                As we dicussed in the lab there was some disagreement in whethere or not the view should be freshly
+                updated each time the model changes: actually this is not up to me. So long as it is coded in such a way
+                there is no inconsistency between the model and view it's all good with me.
+         */
+        public void actionPerformed(ActionEvent e) {
+
+            int i = view.getList().getSelectedIndex();
+            view.getListModel().remove(i);
+
+            //if list size equals to zero do nothing
+            if (view.getListModel().getSize() == 0) {
+
+
+            } else {
+                //remove last
+                if (i == view.getListModel().getSize()) {
+
+                    i--;
+                }
+
+                view.getList().setSelectedIndex(i);
+            }
         }
     }
 
