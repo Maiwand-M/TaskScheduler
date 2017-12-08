@@ -31,6 +31,31 @@ public class Controller {
     }
 
 	class deleteListener implements ActionListener {
+
+        /*
+
+        The process of deleting an entry from the person list should be as follows:
+
+        1) delete button is pressed
+        2) the name (as a string) is taken from the visual list
+        3) this string is passed to the model removePerson(String personName)
+        -- every time the model changes the UI should be updated--
+        4) updateTaskList is called
+
+           void updatePersonList{
+                view.clear()? ///
+                view.showPeople(model.getTaskList())
+                }
+
+                ^^^^^
+                The implementation of this is up to the view and controller but this is the gist of what needs to happen
+                The name of every person (string) should be extracted from the Person object using Person.getName()
+                Then either, put into an Array/ArrayList<String> and passed to the view to be displayed
+
+                As we dicussed in the lab there was some disagreement in whethere or not the view should be freshly
+                updated each time the model changes: actually this is not up to me. So long as it is coded in such a way
+                there is no inconsistency between the model and view it's all good with me.
+         */
         public void actionPerformed(ActionEvent e) {
 
             int i = view.getList().getSelectedIndex();
@@ -54,6 +79,20 @@ public class Controller {
 
     class addPersonListener implements ActionListener, DocumentListener {
 
+        /*
+
+        The process of adding a person should be as follows:
+
+        1) add button is pressed
+        2) the name (as a string) is taken from the text field
+        3) this string is passed to the model addPerson(String name)
+        -- every time the model changes the UI should be updated--
+        4) updatePerosonList is called
+
+           void updatePersonList{
+                view.showPeople(model.getPersonList())
+                }
+         */
         private boolean buttonStatus = false;
         private JButton button;
 

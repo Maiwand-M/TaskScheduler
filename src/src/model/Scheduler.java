@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 
 public class Scheduler {
-/*    ArrayList<Person> staffRoster;
+    ArrayList<Person> staffRoster;
     ArrayList<Task> taskList;
     ArrayList<Task> completedTasks;
     int currentTime = 0;
@@ -16,32 +16,47 @@ public class Scheduler {
        staffRoster.add(new Person(name));
    }
 
+   public void removePerson(String name){
+       for(Person person : staffRoster){
+           if(person.getName().equals(name)){
+               staffRoster.remove(person);
+           }
+       }
+   }
+
+   public void removeTask(String taskName){
+
+   }
+
    public void assignTask(Person person,Task task,int currentTime){
        task.assign(person,currentTime);
        person.assignTask(task);
    }
 
+   public ArrayList<Task> getTaskList(){
+       return taskList;
+    }
 
    public ArrayList<Task> getSchedule(){
 
 
+        /*
+        Punwong's code here please krub
+         */
 
-
-       while(!taskList.isEmpty()){
+       /*while(!taskList.isEmpty()){
             for(taskList){
                 if(currentTime == task.getEnd){
 
-                   //get task person
-                   //remove task from person
 
                 }
             }
-       }
+       }*/
 
        return null;
 
 
 
 
-   }*/
+   }
 }

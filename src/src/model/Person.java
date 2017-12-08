@@ -12,6 +12,10 @@ public class Person {
         this.task = task;
     }
 
+    public String getName(){
+        return this.name;
+    }
+
     public void assignTask(Task task){
         this.task = task;
     }
