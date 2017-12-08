@@ -3,9 +3,9 @@ package model;
 import java.util.ArrayList;
 
 public class Scheduler {
-    ArrayList<Person> staffRoster;
-    ArrayList<Task> taskList;
-    ArrayList<Task> completedTasks;
+    ArrayList<Person> staffRoster = new ArrayList<Person>();
+    ArrayList<Task> taskList = new ArrayList<Task>();
+    ArrayList<Task> completedTasks = new ArrayList<Task>();
     int currentTime = 0;
 
    public void addTask(String name,int effort){
@@ -31,6 +31,10 @@ public class Scheduler {
    public void assignTask(Person person,Task task,int currentTime){
        task.assign(person,currentTime);
        person.assignTask(task);
+   }
+
+   public ArrayList<Person> getStaffRoster() {
+       return staffRoster;
    }
 
    public ArrayList<Task> getTaskList(){
