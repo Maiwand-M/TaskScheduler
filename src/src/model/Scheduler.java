@@ -33,7 +33,7 @@ public class Scheduler {
        person.assignTask(task);
    }
 
-   public void getStaffRoster() {
+   public ArrayList<Person> getStaffRoster() {
        return staffRoster;
    }
 
