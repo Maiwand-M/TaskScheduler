@@ -31,18 +31,11 @@ public class View extends JPanel {
         JScrollPane listScrollPane = new JScrollPane(list);
 
         addPersonButton = new JButton("  add  ");
-        addPersonListener addPersonListener = new addPersonListener(addPersonButton);
-        addPersonButton.setActionCommand("  add  ");
-        addPersonButton.addActionListener(addPersonListener);
         addPersonButton.setEnabled(false);
 
         deleteButton = new JButton("delete");
-        deleteButton.setActionCommand("delete");
-        deleteButton.addActionListener(new deleteListener());
 
         personName = new JTextField(5);
-        personName.addActionListener(addPersonListener);
-        personName.getDocument().addDocumentListener(addPersonListener);
         String name = listModel.getElementAt(
                 list.getSelectedIndex()).toString();
 
@@ -69,6 +62,9 @@ public class View extends JPanel {
 
         this.setOpaque(true);
         frame.setContentPane(this);
+        frame.setTitle("Project Task Scheduler");
+
+        frame.setPreferredSize(new Dimension(600, 400));
 
         frame.pack();
         frame.setVisible(true);
@@ -98,5 +94,9 @@ public class View extends JPanel {
 
     public JButton getAddPersonButton() {
         return addPersonButton;
+    }
+
+    public JButton getDeleteButton() {
+        return deleteButton;
     }
 }
