@@ -24,10 +24,12 @@ public class Controller {
         addPersonListener addPersonListener = new addPersonListener(view.getAddPersonButton());
         view.getAddPersonButton().setActionCommand("  add  ");
         view.getAddPersonButton().addActionListener(addPersonListener);
+
+        view.getDeleteButton().setActionCommand("delete");
+        view.getDeleteButton().addActionListener(new deleteListener());
+
         view.getPersonName().addActionListener(addPersonListener);
         view.getPersonName().getDocument().addDocumentListener(addPersonListener);
-
-        view.getDeleteButton().addActionListener(new deleteListener());
     }
 
     class addPersonListener implements ActionListener, DocumentListener {
@@ -115,7 +117,7 @@ public class Controller {
 	class deleteListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             int i = view.getList().getSelectedIndex();
-            
+
             model.removePerson(view.getListModel().get(i).toString());
             ArrayList<String> staffRoster = new ArrayList<String>();
             for(int j = 0; j < model.getStaffRoster().size(); j++) {
