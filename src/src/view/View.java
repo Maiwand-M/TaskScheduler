@@ -20,8 +20,6 @@ public class View extends JPanel {
         super(new BorderLayout());
 
         listModel = new DefaultListModel();
-        listModel.addElement("");
-
         //list created.
         list = new JList(listModel);
         list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -36,14 +34,11 @@ public class View extends JPanel {
         deleteButton = new JButton("delete");
 
         personName = new JTextField(5);
-        String name = listModel.getElementAt(
-                list.getSelectedIndex()).toString();
 
         //BoxLayout panel created.
         JPanel buttonPane = new JPanel();
 
-        buttonPane.setLayout(new BoxLayout(buttonPane,
-                BoxLayout.LINE_AXIS));
+        buttonPane.setLayout(new BoxLayout(buttonPane, BoxLayout.LINE_AXIS));
         buttonPane.add(addPersonButton);
         buttonPane.add(Box.createHorizontalStrut(5));
         buttonPane.add(new JSeparator(SwingConstants.VERTICAL));

@@ -52,16 +52,9 @@ public class Controller {
                 return;
             }
 
-            int i = view.getList().getSelectedIndex(); //get selected index
-            if (i == -1) { //no selection, so insert at beginning
-                i = 0;
-            } else {           //add after the selected item
-                i++;
-            }
-            //adding the person to the view.getList()
             model.addPerson(name);
             ArrayList<String> staffRoster = new ArrayList<String>();
-            for(i = 0; i < model.getStaffRoster().size(); i++) {
+            for(int i = 0; i < model.getStaffRoster().size(); i++) {
                 staffRoster.add(model.getStaffRoster().get(i).getName());
             }
             view.updatePersonList(staffRoster);
@@ -69,7 +62,8 @@ public class Controller {
             //Reseting the text field.
             view.getPersonName().setText("");
 
-            view.getList().setSelectedIndex(i);
+            //move selection to end
+            view.getList().setSelectedIndex(view.getListModel().getSize()-1);
         }
 
         //checks if given name is already in the list
@@ -126,10 +120,8 @@ public class Controller {
 
                 //remove last
                 if (i == view.getListModel().getSize()) {
-
                     i--;
                 }
-
                 view.getList().setSelectedIndex(i);
             }
         }
