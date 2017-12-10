@@ -116,27 +116,29 @@ public class Controller {
 
 	class deleteListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            int i = view.getList().getSelectedIndex();
+            if(view.getListModel().size() > 0) {
+                int i = view.getList().getSelectedIndex();
 
-            model.removePerson(view.getListModel().get(i).toString());
-            ArrayList<String> staffRoster = new ArrayList<String>();
-            for(int j = 0; j < model.getStaffRoster().size(); j++) {
-                staffRoster.add(model.getStaffRoster().get(j).getName());
-            }
-            view.updatePersonList(staffRoster);
-
-            //if list size equals to zero do nothing
-            if (view.getListModel().getSize() == 0) {
-
-
-            } else {
-                //remove last
-                if (i == view.getListModel().getSize()) {
-
-                    i--;
+                model.removePerson(view.getListModel().get(i).toString());
+                ArrayList<String> staffRoster = new ArrayList<String>();
+                for(int j = 0; j < model.getStaffRoster().size(); j++) {
+                    staffRoster.add(model.getStaffRoster().get(j).getName());
                 }
+                view.updatePersonList(staffRoster);
 
-                view.getList().setSelectedIndex(i);
+                //if list size equals to zero do nothing
+                if (view.getListModel().getSize() == 0) {
+
+
+                } else {
+                    //remove last
+                    if (i == view.getListModel().getSize()) {
+
+                        i--;
+                    }
+
+                    view.getList().setSelectedIndex(i);
+                }
             }
         }
     }
