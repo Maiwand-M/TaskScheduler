@@ -74,13 +74,11 @@ public class Controller {
 
         //checks if given name is already in the list
         protected boolean alreadyInList(String name){
-
             return view.getListModel().contains(name);
         }
 
         //enabling the button if text if the written text is valid
         public void insertUpdate(DocumentEvent e){
-
             enableButton();
         }
 
@@ -126,19 +124,13 @@ public class Controller {
                 }
                 view.updatePersonList(staffRoster);
 
-                //if list size equals to zero do nothing
-                if (view.getListModel().getSize() == 0) {
+                //remove last
+                if (i == view.getListModel().getSize()) {
 
-
-                } else {
-                    //remove last
-                    if (i == view.getListModel().getSize()) {
-
-                        i--;
-                    }
-
-                    view.getList().setSelectedIndex(i);
+                    i--;
                 }
+
+                view.getList().setSelectedIndex(i);
             }
         }
     }
