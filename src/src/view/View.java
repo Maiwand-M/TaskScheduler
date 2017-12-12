@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
+import java.util.ArrayList;
 
 public class View extends JPanel {
 
@@ -19,8 +20,6 @@ public class View extends JPanel {
         super(new BorderLayout());
 
         listModel = new DefaultListModel();
-        listModel.addElement("");
-
         //list created.
         list = new JList(listModel);
         list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -33,17 +32,13 @@ public class View extends JPanel {
         addPersonButton.setEnabled(false);
 
         deleteButton = new JButton("delete");
-        deleteButton.setActionCommand("delete");
 
         personName = new JTextField(5);
-        String name = listModel.getElementAt(
-                list.getSelectedIndex()).toString();
 
         //BoxLayout panel created.
         JPanel buttonPane = new JPanel();
 
-        buttonPane.setLayout(new BoxLayout(buttonPane,
-                BoxLayout.LINE_AXIS));
+        buttonPane.setLayout(new BoxLayout(buttonPane, BoxLayout.LINE_AXIS));
         buttonPane.add(addPersonButton);
         buttonPane.add(Box.createHorizontalStrut(5));
         buttonPane.add(new JSeparator(SwingConstants.VERTICAL));
@@ -66,9 +61,18 @@ public class View extends JPanel {
 
         frame.setPreferredSize(new Dimension(600, 400));
 
-
         frame.pack();
         frame.setVisible(true);
+    }
+
+    public void updatePersonList(ArrayList<String> staffRoster) {
+        int listSize = getListModel().getSize();
+        for(int i = 0; i < listSize; i++) {
+            getListModel().remove(0);
+        }
+        for(int i = 0; i < staffRoster.size(); i++) {
+            getListModel().addElement(staffRoster.get(i));
+        }
     }
 
     public JTextField getPersonName() {
@@ -90,5 +94,4 @@ public class View extends JPanel {
     public JButton getDeleteButton() {
         return deleteButton;
     }
-
 }

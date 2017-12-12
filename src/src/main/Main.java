@@ -11,7 +11,7 @@ public class Main {
         Scheduler model = new Scheduler();
         View view = new View();
         Controller controller = new Controller(model, view);
-        pageForm2 form = new pageForm2();
+        //pageForm2 form = new pageForm2();
 
 
     }

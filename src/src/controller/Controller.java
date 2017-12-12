@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
+import java.util.ArrayList;
 
 import model.Scheduler;
 import view.View;
@@ -23,42 +24,19 @@ public class Controller {
         addPersonListener addPersonListener = new addPersonListener(view.getAddPersonButton());
         view.getAddPersonButton().setActionCommand("  add  ");
         view.getAddPersonButton().addActionListener(addPersonListener);
-        view.getPersonName().addActionListener(addPersonListener);
-        view.getPersonName().getDocument().addDocumentListener(addPersonListener);
 
+        view.getDeleteButton().setActionCommand("delete");
         view.getDeleteButton().addActionListener(new deleteListener());
 
-    }
-
-	class deleteListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-
-            int i = view.getList().getSelectedIndex();
-            view.getListModel().remove(i);
-
-            //if list size equals to zero do nothing
-            if (view.getListModel().getSize() == 0) {
-
-
-            } else {
-                //remove last
-                if (i == view.getListModel().getSize()) {
-
-                    i--;
-                }
-
-                view.getList().setSelectedIndex(i);
-            }
-        }
+        view.getPersonName().addActionListener(addPersonListener);
+        view.getPersonName().getDocument().addDocumentListener(addPersonListener);
     }
 
     class addPersonListener implements ActionListener, DocumentListener {
-
         private boolean buttonStatus = false;
         private JButton button;
 
         public addPersonListener(JButton button){
-
             this.button = button;
         }
 
@@ -74,32 +52,34 @@ public class Controller {
                 return;
             }
 
-            int i = view.getList().getSelectedIndex(); //get selected index
-            if (i == -1) { //no selection, so insert at beginning
-                i = 0;
-            } else {           //add after the selected item
-                i++;
+            model.addPerson(name);
+            ArrayList<String> staffRoster = new ArrayList<String>();
+            for(int i = 0; i < model.getStaffRoster().size(); i++) {
+                staffRoster.add(model.getStaffRoster().get(i).getName());
             }
-            //adding the person to the view.getList()
-            view.getListModel().addElement(view.getPersonName().getText());
+            view.updatePersonList(staffRoster);
 
             //Reseting the text field.
             view.getPersonName().setText("");
 
-            view.getList().setSelectedIndex(i);
+            //move selection to end
+            view.getList().setSelectedIndex(view.getListModel().getSize()-1);
         }
 
 
         //Removed as this check should be done inside the model by the model
         //checks if given name is already in the list
+
         /*protected boolean alreadyInList(String name){
+
+
+        protected boolean alreadyInList(String name){
 
             return view.getListModel().contains(name);
         }*/
 
         //enabling the button if text if the written text is valid
         public void insertUpdate(DocumentEvent e){
-
             enableButton();
         }
 
@@ -133,4 +113,24 @@ public class Controller {
         }
     }
 
+	class deleteListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            if(view.getListModel().size() > 0) {
+                int i = view.getList().getSelectedIndex();
+
+                model.removePerson(view.getListModel().get(i).toString());
+                ArrayList<String> staffRoster = new ArrayList<String>();
+                for(int j = 0; j < model.getStaffRoster().size(); j++) {
+                    staffRoster.add(model.getStaffRoster().get(j).getName());
+                }
+                view.updatePersonList(staffRoster);
+
+                //remove last
+                if (i == view.getListModel().getSize()) {
+                    i--;
+                }
+                view.getList().setSelectedIndex(i);
+            }
+        }
+    }
 }
