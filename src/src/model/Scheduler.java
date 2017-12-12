@@ -4,14 +4,34 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Scheduler {
+
+   ArrayList<Person> staffRoster;
+    ArrayList<Task> taskList;
+    ArrayList<Task> completedTasks;
+
     ArrayList<Person> staffRoster = new ArrayList<Person>();
     ArrayList<Task> taskList = new ArrayList<Task>();
     ArrayList<Task> completedTasks = new ArrayList<Task>();
+
     int currentTime = 0;
 
     public void addTask(String name,int effort){
         taskList.add(new Task(name,effort));
     }
+
+
+   public void addPerson(String name){
+       for(Person p : staffRoster){
+
+           if(p.getName().equals(name)) return;
+       }
+       staffRoster.add(new Person(name));
+   }
+
+   public void assignTask(Person person,Task task,int currentTime){
+       task.assignPerson(person,currentTime);
+       person.assignTask(task);
+   }
 
     public void addPerson(String name){
         staffRoster.add(new Person(name));
@@ -29,6 +49,7 @@ public class Scheduler {
 
     public void removeTask(String taskName){
 
+
     }
 
     public void assignTask(Person person,Task task,int currentTime){
@@ -36,13 +57,17 @@ public class Scheduler {
         person.assignTask(task);
     }
 
+
     public ArrayList<Person> getStaffRoster() {
         return staffRoster;
     }
 
+
     public ArrayList<Task> getTaskList(){
         return taskList;
     }
+
+       /*while(!taskList.isEmpty()){
 
     public ArrayList<Task> getSchedule(){
         /*
@@ -50,14 +75,26 @@ public class Scheduler {
         */
 
         /*while(!taskList.isEmpty()){
+
             for(taskList){
                 if(currentTime == task.getEnd){
 
 
                 }
             }
+
+       }*/
+
+       return null;
+
+
+
+
+   }
+
         }*/
 
         return null;
     }
+
 }
