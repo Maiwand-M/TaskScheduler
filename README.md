@@ -7,7 +7,7 @@ Team Members:
 Hamza Chowdhury
 Daniel Dunn
 Nizam (Arda) Gulsun
-Maiwand Waidanwal
+Maiwand Maidanwal
 Prawee (Punn) Wongphayabal
 
 Specification & Design Doc
