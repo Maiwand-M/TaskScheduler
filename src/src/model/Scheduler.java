@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 
 public class Scheduler {
-/*    ArrayList<Person> staffRoster;
+   ArrayList<Person> staffRoster;
     ArrayList<Task> taskList;
     ArrayList<Task> completedTasks;
     int currentTime = 0;
@@ -13,21 +13,27 @@ public class Scheduler {
    }
 
    public void addPerson(String name){
+       for(Person p : staffRoster){
+
+           if(p.getName().equals(name)) return;
+       }
        staffRoster.add(new Person(name));
    }
 
    public void assignTask(Person person,Task task,int currentTime){
-       task.assign(person,currentTime);
+       task.assignPerson(person,currentTime);
        person.assignTask(task);
    }
 
 
    public ArrayList<Task> getSchedule(){
 
+        /*
+        Punn???
+         */
 
 
-
-       while(!taskList.isEmpty()){
+       /*while(!taskList.isEmpty()){
             for(taskList){
                 if(currentTime == task.getEnd){
 
@@ -36,12 +42,12 @@ public class Scheduler {
 
                 }
             }
-       }
+       }*/
 
        return null;
 
 
 
 
-   }*/
+   }
 }

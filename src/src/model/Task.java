@@ -14,25 +14,31 @@ public class Task {
         new Task(name,effort,null);
     }
 
-    public Task(String name, int effort, Task prerequiste){
+    public Task(String name, int effort, Task prerequisite){
         this.name = name;
         this.effort = effort;
-        dependencies.add(prerequiste);
+        dependencies.add(prerequisite);
+        this.endTime  = this.startTime + effort;
     }
 
     public void addDependancy(Task task){
         dependencies.add(task);
     }
 
-    public void assign(Person person,int startTime){
+    public void assignPerson(Person person,int startTime){
 
         this.person = person;
         setStartTime(startTime);
     }
 
+    public int getEndTime() {
+        return endTime;
+    }
+
     public int getStartTime(){
         return startTime;
     }
+
     private void setStartTime(int startTime){
         this.startTime = startTime;
         this.endTime = startTime + effort;

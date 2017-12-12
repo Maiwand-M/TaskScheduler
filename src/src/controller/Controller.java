@@ -66,7 +66,7 @@ public class Controller {
             String name = view.getPersonName().getText();
 
             //User didn't type in a unique name...
-            if (name.equals("") || alreadyInList(name)){
+            if (name.equals("")){
 
                 view.getPersonName().requestFocusInWindow();
                 view.getPersonName().selectAll();
@@ -89,11 +89,13 @@ public class Controller {
             view.getList().setSelectedIndex(i);
         }
 
+
+        //Removed as this check should be done inside the model by the model
         //checks if given name is already in the list
-        protected boolean alreadyInList(String name){
+        /*protected boolean alreadyInList(String name){
 
             return view.getListModel().contains(name);
-        }
+        }*/
 
         //enabling the button if text if the written text is valid
         public void insertUpdate(DocumentEvent e){

@@ -16,6 +16,9 @@ public class Person {
         this.task = task;
     }
 
+    public String getName(){
+        return this.name;
+    }
     public void completeTask(){
         this.task = null;
     }
