@@ -1,14 +1,14 @@
 package main;
 
 import controller.Controller;
-import model.Scheduler;
+import model.Compute;
 import view.*;
 
 public class Main {
 
 	public static void main(String[] Args) {
 
-        Scheduler model = new Scheduler();
+        Compute model = new Compute();
         View view = new View();
         Controller controller = new Controller(model, view);
         //pageForm2 form = new pageForm2();
