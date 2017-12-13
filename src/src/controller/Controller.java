@@ -6,15 +6,15 @@ import javax.swing.*;
 import javax.swing.event.*;
 import java.util.ArrayList;
 
-import model.Scheduler;
+import model.Compute;
 import view.View;
 
 public class Controller {
 
-    private Scheduler model;
+    private Compute model;
 	private View view;
 
-    public Controller(Scheduler m, View v) {
+    public Controller(Compute m, View v) {
 
         this.model = m;
         this.view = v;
