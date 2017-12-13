@@ -1,17 +1,18 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+
 public class Compute {
     private ArrayList<Person> staffRoster;
     //private ArrayList<ArrayList<Task>> tasks;
     private ArrayList<Task> taskList;
     private ArrayList<Task> completedTasks;
     
-    public Compute(ArrayList<Task> taskIn, ArrayList<Person> workersIn){
-        this.taskList = taskIn;
-        this.staffRoster = workersIn;
+    public Compute(){
         completedTasks = new ArrayList<>();
     }
+    
     
     public void addTask(String name,int effort, int time){
         taskList.add(new Task(name,effort,time));
