@@ -1,3 +1,5 @@
+package model;
+
 import java.util.ArrayList;
 public class Compute {
     private ArrayList<Person> staffRoster;
