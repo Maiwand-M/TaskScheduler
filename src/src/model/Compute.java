@@ -67,6 +67,19 @@ public class Compute {
         }
     }**/
     
+    public void removePerson(String name){
+        for(Iterator<Person> iterator = staffRoster.iterator(); iterator.hasNext();){
+            Person person = iterator.next();
+            if(person.getName().equals(name)){
+                iterator.remove();
+            }
+        }
+    }
+    
+    public ArrayList<Person> getStaffRoster(){
+        return this.staffRoster;
+    }
+    
     public boolean dependenciesCompleted(Task input){
         for(Task k : input.getDependencies()){
             if (!completedTasks.contains(k)) return false;
