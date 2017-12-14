@@ -7,7 +7,6 @@ import javax.swing.event.*;
 import java.util.ArrayList;
 
 import model.Compute;
-import sun.jvm.hotspot.debugger.Page;
 import view.Page2;
 import view.Page3;
 import view.View;
