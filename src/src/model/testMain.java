@@ -22,7 +22,7 @@ public class testMain{
         b.add(task2);
         b.add(task1);
         b.add(task3);
-        Compute sys = new Compute(b,z);
+        Compute sys = new Compute();
         sys.schedule();
         sys.print();
         

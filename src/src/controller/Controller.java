@@ -7,17 +7,25 @@ import javax.swing.event.*;
 import java.util.ArrayList;
 
 import model.Compute;
+import sun.jvm.hotspot.debugger.Page;
+import view.Page2;
+import view.Page3;
 import view.View;
 
 public class Controller {
 
     private Compute model;
 	private View view;
+	private Page2 page2;
+	private Page3 page3;
 
-    public Controller(Compute m, View v) {
+    public Controller(Compute m, View v, Page2 p2, Page3 p3) {
 
         this.model = m;
         this.view = v;
+        page2 = p2;
+        page3 = p3;
+
 
         // Listeners
 
@@ -27,6 +35,37 @@ public class Controller {
 
         view.getDeleteButton().setActionCommand("delete");
         view.getDeleteButton().addActionListener(new deleteListener());
+
+
+        view.getNextButton().addActionListener(e ->{
+
+            page2.setVisible(true);
+            view.setVisible(false);
+
+        });
+
+
+        page2.getNextButton().addActionListener(e ->{
+
+            page3.setVisible(true);
+            page2.setVisible(false);
+
+        });
+
+        page2.getBackButton().addActionListener(e ->{
+
+            view.setVisible(true);
+            page2.setVisible(false);
+
+        });
+
+
+        page3.getGoBackButton().addActionListener(e -> {
+            page2.setVisible(true);
+            page3.setVisible(false);
+
+        });
+
 
         view.getPersonName().addActionListener(addPersonListener);
         view.getPersonName().getDocument().addDocumentListener(addPersonListener);
@@ -112,6 +151,8 @@ public class Controller {
             return false;
         }
     }
+
+
 
 	class deleteListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {

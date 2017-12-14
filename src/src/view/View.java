@@ -6,18 +6,20 @@ import javax.swing.*;
 import javax.swing.event.*;
 import java.util.ArrayList;
 
-public class View extends JPanel {
+public class View extends JFrame {
 
     private JList list;
     private DefaultListModel listModel;
 
     private JButton deleteButton;
     private JButton addPersonButton;
+    private JButton nextbutton;
     private JTextField personName;
+    private JLabel labelListPeople;
 
     public View() {
 
-        super(new BorderLayout());
+//        super(new BorderLayout());
 
         listModel = new DefaultListModel();
         //list created.
@@ -31,9 +33,15 @@ public class View extends JPanel {
         addPersonButton = new JButton("  add  ");
         addPersonButton.setEnabled(false);
 
+
         deleteButton = new JButton("delete");
 
+        labelListPeople = new JLabel("List Of People:");
+
         personName = new JTextField(5);
+
+        nextbutton = new JButton("Next");
+
 
         //BoxLayout panel created.
         JPanel buttonPane = new JPanel();
@@ -45,24 +53,34 @@ public class View extends JPanel {
         buttonPane.add(Box.createHorizontalStrut(5));
         buttonPane.add(personName);
         buttonPane.add(deleteButton);
-        buttonPane.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+
+        buttonPane.add(nextbutton);
+
+        buttonPane.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
         add(listScrollPane, BorderLayout.CENTER);
+        add(labelListPeople, BorderLayout.NORTH);
         add(buttonPane, BorderLayout.PAGE_END);
 
-        JFrame frame = new JFrame("List of People");
-        frame.setSize( 600,100);
-        frame.setPreferredSize(new Dimension(600,700));
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        this.setOpaque(true);
-        frame.setContentPane(this);
-        frame.setTitle("Project Task Scheduler");
+//        this.setOpaque(true);
+//        frame.setContentPane(this);
+        setTitle("Project Task Scheduler");
 
-        frame.setPreferredSize(new Dimension(600, 400));
+        setPreferredSize(new Dimension(600, 400));
 
-        frame.pack();
-        frame.setVisible(true);
+        pack();
+        setVisible(true);
+
+        setLocationRelativeTo(null);
+
+
+    }
+
+
+    public JButton getNextbutton() {
+        return nextbutton;
     }
 
     public void updatePersonList(ArrayList<String> staffRoster) {
@@ -90,6 +108,8 @@ public class View extends JPanel {
     public JButton getAddPersonButton() {
         return addPersonButton;
     }
+
+    public JButton getNextButton() { return nextbutton;}
 
     public JButton getDeleteButton() {
         return deleteButton;
