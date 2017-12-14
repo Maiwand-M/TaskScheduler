@@ -10,8 +10,12 @@ public class Main {
 
         Compute model = new Compute();
         View view = new View();
-        Controller controller = new Controller(model, view);
-        //pageForm2 form = new pageForm2();
+        Page2 p2 = new Page2();
+        Page3 p3 = new Page3();
+
+        Controller controller = new Controller(model, view, p2, p3);
+//        PageForm2 form = new PageForm2();
+//        ScheduleView sv = new ScheduleView();
 
 
     }
