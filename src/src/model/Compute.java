@@ -11,6 +11,8 @@ public class Compute {
     
     public Compute(){
         completedTasks = new ArrayList<>();
+        staffRoster = new ArrayList<>();
+        taskList = new ArrayList<>();
     }
     
     
