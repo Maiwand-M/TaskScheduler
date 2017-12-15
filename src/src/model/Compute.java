@@ -8,22 +8,22 @@ public class Compute {
     //private ArrayList<ArrayList<Task>> tasks;
     private ArrayList<Task> taskList;
     private ArrayList<Task> completedTasks;
-    
+
     public Compute(){
         completedTasks = new ArrayList<>();
         staffRoster = new ArrayList<>();
         taskList = new ArrayList<>();
     }
-    
-    
+
+
     public void addTask(String name,int effort, int time){
         taskList.add(new Task(name,effort,time));
     }
-    
+
     public void addPerson(String name){
         staffRoster.add(new Person(name));
     }
-    
+
     /**private void schedule(ArrayList<Task> input){ //Sorting work into index
         int index = 0;
             for(int i = 0; i < input.size(); i++){
@@ -45,7 +45,7 @@ public class Compute {
                 }
             }
     }
-    
+
     /**public void assign(){
         int time = 0;
         int index = 0;
@@ -69,7 +69,7 @@ public class Compute {
             time++;
         }
     }**/
-    
+
     public void removePerson(String name){
         for(Iterator<Person> iterator = staffRoster.iterator(); iterator.hasNext();){
             Person person = iterator.next();
@@ -78,18 +78,18 @@ public class Compute {
             }
         }
     }
-    
+
     public ArrayList<Person> getStaffRoster(){
         return this.staffRoster;
     }
-    
+
     public boolean dependenciesCompleted(Task input){
         for(Task k : input.getDependencies()){
             if (!completedTasks.contains(k)) return false;
         }
         return true;
     }
-    
+
     public void schedule(){ //Sorting work into index
         int taskLength = taskList.size();
         int time = 0;
@@ -110,11 +110,11 @@ public class Compute {
             time++;
         }
     }
-    
+
     public ArrayList<Task> getSchedule(){
         return this.completedTasks;
     }
-    
+
     public void print(){
         System.out.println(completedTasks.size());
         if (completedTasks.size() == 0) System.out.println("This is empty");
@@ -125,7 +125,7 @@ public class Compute {
         }
     }
 
-    
-    
-    
+
+
+
 }
