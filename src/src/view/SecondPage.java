@@ -8,7 +8,8 @@ import java.awt.*;
 public class SecondPage extends JFrame {
 
 
-    private JTextField pleaseEnterTaskTextField;
+        private JTextField pleaseEnterTaskTextField;
+        private JTextField startingHour;
         private JComboBox comboBox1;
         private JComboBox comboBox2;
         private JButton submitButton;
@@ -24,15 +25,27 @@ public class SecondPage extends JFrame {
             panelss.setLayout(new GridLayout(7,1));
             panelss.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLoweredBevelBorder(), "Addition Of Tasks:"));
             pleaseEnterTaskTextField = new JTextField();
-            pleaseEnterTaskTextField.setText("Please enter task...");
+            pleaseEnterTaskTextField.setText("Please enter task name...");
             panelss.add(pleaseEnterTaskTextField);
             pleaseEnterTaskTextField.setPreferredSize(new Dimension(100, 10));
-            final JLabel label1 = new JLabel();
-            label1.setText("Effort Required:");
-            panelss.add(label1);
+
+            final JLabel labelTime = new JLabel();
+            labelTime.setText("Starting time (1 to 24)");
+            panelss.add(labelTime);
+
+            startingHour = new JTextField("Please enter starting time in hours...");
+
+            panelss.add(startingHour);
+
+           /* final JLabel label1 = new JLabel();
+            label1.setText();
+            panelss.add(label1);*/
+
+
+
 
             final JLabel label2 = new JLabel();
-            label2.setText("(Indicate Hours spent)");
+            label2.setText("Effort Required: (Indicate Hours spent)");
             panelss.add(label2);
 
             comboBox1 = new JComboBox();
@@ -123,6 +136,10 @@ public class SecondPage extends JFrame {
         return pleaseEnterTaskTextField;
     }
 
+    public JTextField getStartingHour() {
+        return startingHour;
+    }
+
     public JComboBox getComboBox1() {
         return comboBox1;
     }
@@ -138,5 +155,7 @@ public class SecondPage extends JFrame {
     public JPanel getPanelss() {
         return panelss;
     }
+
+
 
     }
