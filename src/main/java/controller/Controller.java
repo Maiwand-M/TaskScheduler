@@ -189,11 +189,16 @@ public class Controller {
 
     class submitListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-
             model.addTask(page2.getPleaseEnterTaskTextField().getText(), Integer.parseInt(page2.getComboBox1().getSelectedItem().toString()), Integer.parseInt(page2.getStartingHour().getText()));
 
+            page2.getDefaultComboBoxModel2().removeAllElements();
+            page2.getDefaultComboBoxModel2().addElement("No Dependancies");
+            for(int j = 0; j < model.getTaskList().size(); j++){
+                page2.getDefaultComboBoxModel2().addElement(model.getTaskList().get(j).getName());
+            }
 
-           // System.out.println("try");
+            // System.out.println("try");
+
 
         }
     }
