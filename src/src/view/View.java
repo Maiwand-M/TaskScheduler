@@ -93,6 +93,7 @@ public class View extends JFrame {
         }
     }
 
+
     public JTextField getPersonName() {
         return personName;
     }
@@ -114,4 +115,5 @@ public class View extends JFrame {
     public JButton getDeleteButton() {
         return deleteButton;
     }
+
 }
