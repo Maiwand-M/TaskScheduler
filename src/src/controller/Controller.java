@@ -1,24 +1,23 @@
 package controller;
 
-import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 import java.util.ArrayList;
 
 import model.Compute;
-import view.Page2;
-import view.Page3;
+import view.SecondPage;
+import view.ThirdPage;
 import view.View;
 
 public class Controller {
 
     private Compute model;
 	private View view;
-	private Page2 page2;
-	private Page3 page3;
+	private SecondPage page2;
+	private ThirdPage page3;
 
-    public Controller(Compute m, View v, Page2 p2, Page3 p3) {
+    public Controller(Compute m, View v, SecondPage p2, ThirdPage p3) {
 
         this.model = m;
         this.view = v;
