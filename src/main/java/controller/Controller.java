@@ -1,15 +1,15 @@
-package controller;
+package main.java.controller;
 
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 import java.util.ArrayList;
 
-import model.Compute;
-import model.Task;
-import view.SecondPage;
-import view.ThirdPage;
-import view.View;
+import main.java.model.Compute;
+import main.java.model.Task;
+import main.java.view.SecondPage;
+import main.java.view.ThirdPage;
+import main.java.view.View;
 
 public class Controller {
 
@@ -117,7 +117,7 @@ public class Controller {
         }
 
 
-        //Removed as this check should be done inside the model by the model
+        //Removed as this check should be done inside the main.java.controller.model by the main.java.controller.model
         //checks if given name is already in the list
 
         /*protected boolean alreadyInList(String name){
@@ -125,7 +125,7 @@ public class Controller {
 
         protected boolean alreadyInList(String name){
 
-            return view.getListModel().contains(name);
+            return main.java.controller.view.getListModel().contains(name);
         }*/
 
         //enabling the button if text if the written text is valid
