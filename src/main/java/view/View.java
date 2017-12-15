@@ -1,9 +1,7 @@
-package view;
+package main.java.view;
 
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
 import java.util.ArrayList;
 
 public class View extends JFrame {

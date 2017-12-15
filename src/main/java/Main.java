@@ -1,8 +1,10 @@
-package main;
+package main.java;
 
-import controller.Controller;
-import model.Compute;
-import view.*;
+import main.java.controller.Controller;
+import main.java.model.Compute;
+import main.java.view.SecondPage;
+import main.java.view.ThirdPage;
+import main.java.view.View;
 
 public class Main {
 
