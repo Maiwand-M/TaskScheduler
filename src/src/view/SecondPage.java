@@ -109,15 +109,15 @@ public class SecondPage extends JFrame {
 
         }
 
-        public JButton getBackButton(){
+    public JButton getBackButton(){
 
-            return backButton;
-        }
+        return backButton;
+    }
 
-        public JButton getNextButton(){
+    public JButton getNextButton(){
 
-            return nextButton;
-        }
+        return nextButton;
+    }
 
     public JTextField getPleaseEnterTaskTextField() {
         return pleaseEnterTaskTextField;
