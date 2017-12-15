@@ -15,6 +15,7 @@ public class Compute {
         taskList = new ArrayList<>();
     }
 
+    public ArrayList<Task> getTaskList(){return taskList; }
 
     public void addTask(String name,int effort, int time){
         taskList.add(new Task(name,effort,time));

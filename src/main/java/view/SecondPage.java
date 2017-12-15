@@ -14,6 +14,7 @@ public class SecondPage extends JFrame {
         private JButton nextButton;
         private JButton backButton;
         private JPanel panelss;
+        private DefaultComboBoxModel defaultComboBoxModel2;
 
 
         public SecondPage(){
@@ -67,8 +68,9 @@ public class SecondPage extends JFrame {
             final JLabel label3 = new JLabel();
             label3.setText("Select Dependancy:");
             panelss.add(label3);
+
             comboBox2 = new JComboBox();
-            final DefaultComboBoxModel defaultComboBoxModel2 = new DefaultComboBoxModel();
+            defaultComboBoxModel2 = new DefaultComboBoxModel();
             defaultComboBoxModel2.addElement("No Dependancies");
 
             comboBox2.setModel(defaultComboBoxModel2);
@@ -121,12 +123,10 @@ public class SecondPage extends JFrame {
         }
 
     public JButton getBackButton(){
-
         return backButton;
     }
 
     public JButton getNextButton(){
-
         return nextButton;
     }
 
@@ -146,6 +146,10 @@ public class SecondPage extends JFrame {
         return comboBox2;
     }
 
+    public DefaultComboBoxModel getDefaultComboBoxModel2() {
+        return defaultComboBoxModel2;
+    }
+
     public JButton getSubmitButton() {
         return submitButton;
     }
@@ -156,4 +160,4 @@ public class SecondPage extends JFrame {
 
 
 
-    }
+}
