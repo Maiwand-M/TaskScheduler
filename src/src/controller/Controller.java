@@ -51,7 +51,14 @@ public class Controller {
 
         page2.getNextButton().addActionListener(e ->{
 
+            model.schedule();
+            ArrayList<String> scheduleRoster = new ArrayList<String>();
+            for(int i = 0; i < model.getSchedule().size(); i++) {
+                scheduleRoster.add(model.getSchedule().get(i).getWorker().getName()+" "+model.getSchedule().get(i).toString());
+            }
+            page3.updateScheduleList(scheduleRoster);
             page3.setVisible(true);
+
             page2.setVisible(false);
 
         });
@@ -182,15 +189,11 @@ public class Controller {
 
     class submitListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            model.addTask(page2.getPleaseEnterTaskTextField().getText(), Integer.parseInt(page2.getComboBox1().getSelectedItem().toString()), page2.getComboBox2().getItemCount());
-            model.schedule();
-            ArrayList<String> scheduleRoster = new ArrayList<String>();
-            for(int i = 0; i < model.getSchedule().size(); i++) {
-                scheduleRoster.add(model.getSchedule().get(i).toString());
-            }
-            page3.updateScheduleList(scheduleRoster);
 
-            System.out.println("try");
+            model.addTask(page2.getPleaseEnterTaskTextField().getText(), Integer.parseInt(page2.getComboBox1().getSelectedItem().toString()), Integer.parseInt(page2.getStartingHour().getText()));
+
+
+           // System.out.println("try");
 
         }
     }
