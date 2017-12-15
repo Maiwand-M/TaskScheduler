@@ -6,6 +6,7 @@ import javax.swing.event.*;
 import java.util.ArrayList;
 
 import model.Compute;
+import model.Task;
 import view.SecondPage;
 import view.ThirdPage;
 import view.View;
@@ -13,6 +14,7 @@ import view.View;
 public class Controller {
 
     private Compute model;
+    private Task task;
 	private View view;
 	private SecondPage page2;
 	private ThirdPage page3;
@@ -33,6 +35,10 @@ public class Controller {
 
         view.getDeleteButton().setActionCommand("delete");
         view.getDeleteButton().addActionListener(new deleteListener());
+
+
+        page2.getSubmitButton().setActionCommand("submit");
+        page2.getSubmitButton().addActionListener(new submitListener());
 
 
         view.getNextButton().addActionListener(e ->{
@@ -172,4 +178,24 @@ public class Controller {
             }
         }
     }
+
+
+    class submitListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            model.addTask(page2.getPleaseEnterTaskTextField().getText(),page2.getComboBox1().getItemCount(),page2.getComboBox2().getItemCount());
+            model.schedule();
+            ArrayList<String> scheduleRoster = new ArrayList<String>();
+            for(int i = 0; i < model.getSchedule().size(); i++) {
+                scheduleRoster.add(model.getSchedule().get(i).toString());
+            }
+            page3.updateScheduleList(scheduleRoster);
+
+            System.out.println("try");
+
+        }
+    }
+
+
+
+
 }
