@@ -1,4 +1,4 @@
-# 5CCS2SEG_AgileProject_Newt
+# Project_Newt
 
 This project is to make a prototype project management scheduling application in Java.
 
